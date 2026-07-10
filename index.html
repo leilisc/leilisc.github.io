@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李磊- 高校教师主页</title>
+    <title>李磊 - 高校教师主页</title>
     <style>
-        /* 1. 全局变量与基础样式 */
         :root {
-            --primary-color: #2563eb; /* 更现代的蓝色 */
+            --primary-color: #2563eb;
             --text-color: #334155;
             --sub-text-color: #64748b;
-            --bg-color: #f8fafc; /* 极淡的灰蓝背景 */
-            --card-bg: #ffffff;
+            --bg-color: #ffffff;
             --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
         body {
             font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--text-color);
             background-color: var(--bg-color);
             margin: 0;
@@ -26,37 +23,28 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 2. 容器与卡片 */
         .container {
             max-width: 860px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 50px 20px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 40px;
-            margin-bottom: 24px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease;
-        }
-
-        /* 3. 头部区域 */
+        /* 头部区域 */
         .header {
             display: flex;
             gap: 30px;
             align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .avatar {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 0 0 2px var(--border-color);
+            border: 3px solid var(--border-color);
             flex-shrink: 0;
         }
 
@@ -85,47 +73,38 @@
             font-size: 0.9em;
             font-weight: 600;
             transition: all 0.2s;
-            border: 1px solid transparent;
         }
 
         .btn:hover {
             background: var(--primary-color);
             color: #fff;
-            border-color: var(--primary-color);
         }
 
-        /* 4. 内容板块 */
-        section { margin-bottom: 30px; }
-        section:last-child { margin-bottom: 0; }
+        /* 内容板块 */
+        section { margin-bottom: 35px; }
 
         h2 {
             font-size: 1.4em;
             color: #1e293b;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f1f5f9;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* 5. 列表样式优化 */
         ul { padding-left: 20px; margin: 0; }
         li { margin-bottom: 8px; }
 
-        /* 6. 论文与项目条目 */
-        .item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #e2e8f0; }
-        .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
+        /* 列表条目样式 */
+        .item { margin-bottom: 20px; }
         .item-title {
             font-weight: 700;
             color: #1e293b;
             font-size: 1.05em;
             margin-bottom: 4px;
-            transition: color 0.2s;
         }
-        .item-title:hover { color: var(--primary-color); cursor: pointer; }
-
         .item-meta { font-size: 0.9em; color: var(--sub-text-color); margin-bottom: 2px; }
         .item-venue { font-style: italic; color: var(--primary-color); font-size: 0.85em; font-weight: 500; }
         
@@ -140,10 +119,9 @@
         }
         .item-links a:hover { color: var(--primary-color); text-decoration: underline; }
 
-        /* 7. 响应式适配 */
+        /* 响应式适配 */
         @media (max-width: 640px) {
-            .container { margin: 20px auto; }
-            .card { padding: 25px; }
+            .container { padding: 30px 15px; }
             .header { flex-direction: column; text-align: center; gap: 20px; }
             .links { justify-content: center; }
             .intro h1 { font-size: 1.8em; }
@@ -153,113 +131,105 @@
 <body>
 
 <div class="container">
-    <!-- 头部卡片 -->
-    <div class="card">
-        <div class="header">
-            <!-- ⚠️ 记得把 photo.jpg 换成你上传的照片文件名 -->
-            <img src="lilei.jpg" alt="Photo" class="avatar">
-            <div class="intro">
-                <h1>李磊 </h1>
-                <p>🏫 特聘副研究员 · 西南石油大学 计算机与软件学院</p>
-                <p>📧 leili@swpu.edu.cn</p>
-                <div class="links">
-                    <a href="https://scholar.google.com" target="_blank" class="btn">Google Scholar</a>
-                    <a href="https://github.com/你的用户名" target="_blank" class="btn">Orcid主页</a>
-                </div>
+    <!-- 头部区域 -->
+    <div class="header">
+        <!-- ⚠️ 记得把 photo.jpg 换成你上传的照片文件名 -->
+        <img src="photo.jpg" alt="Photo" class="avatar">
+        <div class="intro">
+            <h1>李磊 Lei Li</h1>
+            <p>🏫 特聘副研究员 · 西南石油大学 计算机与软件学院</p>
+            <p>🎂 出生年月：1994年2月</p>
+            <p>📧 leili@swpu.edu.cn</p>
+            <div class="links">
+                <a href="https://scholar.google.com" target="_blank" class="btn">Google Scholar</a>
+                <a href="https://orcid.org/你的ORCID号" target="_blank" class="btn">ORCID</a>
             </div>
         </div>
     </div>
 
     <!-- 个人简介 -->
-    <div class="card">
-        <section>
-            <h2>📝 个人简介</h2>
-            <p>
-                我是 XX大学 XX学院的 [职称]。我的研究兴趣主要集中在 <strong>人工智能</strong>、<strong>大模型高效推理</strong> 和 <strong>计算机视觉</strong> 等领域。
-                近年来，我在 NeurIPS, ICML, CVPR 等顶级会议及 IEEE TPAMI 等期刊发表多篇论文，致力于推动 AI 系统在边缘端的落地应用。
-            </p>
-        </section>
-    </div>
+    <section>
+        <h2>📝 个人简介</h2>
+        <p>
+            我是 XX大学 XX学院的 [职称]，[博士生导师/硕士生导师]。我的研究聚焦于 <strong>人工智能系统与大模型高效计算</strong>，致力于解决大模型在资源受限场景下的推理瓶颈。
+        </p>
+        <p>
+            近年来，我以第一作者/通讯作者在 <strong>NeurIPS, ICML, CVPR, IEEE TPAMI</strong> 等顶级会议与期刊发表论文 [X] 篇。研究成果被引用 [X] 次，致力于推动 AI 系统在边缘端的落地应用。
+        </p>
+    </section>
 
-    <!-- 研究兴趣 -->
-    <div class="card">
-        <section>
-            <h2>🔬 研究兴趣</h2>
-            <ul>
-                <li>大语言模型量化与部署 (LLM Quantization)</li>
-                <li>高效深度学习系统 (Efficient AI Systems)</li>
-                <li>多模态学习 (Multimodal Learning)</li>
-            </ul>
-        </section>
-    </div>
+    <!-- 研究方向 -->
+    <section>
+        <h2>🔬 研究方向</h2>
+        <ul>
+            <li><strong>大模型高效推理：</strong>研究模型量化、剪枝与动态计算图，旨在将百亿级模型部署至边缘设备。</li>
+            <li><strong>多模态对齐机制：</strong>探索视觉-语言跨模态语义空间的统一表征，解决复杂场景下的幻觉问题。</li>
+            <li><strong>AI for Science：</strong>利用深度学习加速 [具体学科]，相关代码已开源并被 [某机构] 采用。</li>
+        </ul>
+    </section>
 
     <!-- 教育经历 -->
-    <div class="card">
-        <section>
-            <h2>🎓 教育经历</h2>
-            <div class="item">
-                <div class="item-title">博士，计算机科学与技术，XX大学</div>
-                <div class="item-meta">2018.09 - 2023.06 | 导师：XXX 教授</div>
-            </div>
-            <div class="item">
-                <div class="item-title">学士，计算机科学与技术，XX大学</div>
-                <div class="item-meta">2014.09 - 2018.06 | 优秀毕业生</div>
-            </div>
-        </section>
-    </div>
+    <section>
+        <h2>🎓 教育经历</h2>
+        <div class="item">
+            <div class="item-title">博士 · 计算机科学与技术 | XX大学</div>
+            <div class="item-meta">2018.09 - 2023.06 | 导师：XXX 教授 | 博士论文：《[论文完整题目]》</div>
+        </div>
+        <div class="item">
+            <div class="item-title">学士 · 计算机科学与技术 | XX大学</div>
+            <div class="item-meta">2014.09 - 2018.06 | 省级优秀毕业生</div>
+        </div>
+    </section>
 
     <!-- 科研项目 -->
-    <div class="card">
-        <section>
-            <h2>🚀 科研项目</h2>
-            <div class="item">
-                <div class="item-title">面向大语言模型的极致压缩与高效推理技术研究</div>
-                <div class="item-meta">国家自然科学基金青年项目 | <strong>项目负责人</strong></div>
-                <div class="item-meta">2025.01 - 2027.12</div>
-            </div>
-            <div class="item">
-                <div class="item-title">多模态视觉大模型关键技术研究</div>
-                <div class="item-meta">XX省重点研发计划 | <strong>核心骨干</strong></div>
-                <div class="item-meta">2023.06 - 2025.05</div>
-            </div>
-        </section>
-    </div>
+    <section>
+        <h2>🚀 科研项目</h2>
+        <div class="item">
+            <div class="item-title">面向大语言模型的极致压缩与高效推理技术研究</div>
+            <div class="item-meta">国家自然科学基金青年项目 (No. 62406XXX) | <strong>项目负责人</strong></div>
+            <div class="item-meta">2025.01 - 2027.12 | 经费：30万元</div>
+        </div>
+        <div class="item">
+            <div class="item-title">多模态视觉大模型关键技术研究与应用</div>
+            <div class="item-meta">XX省重点研发计划 | <strong>项目负责人</strong></div>
+            <div class="item-meta">2023.06 - 2025.05 | 经费：50万元</div>
+        </div>
+    </section>
 
     <!-- 代表性论文 -->
-    <div class="card">
-        <section>
-            <h2>📄 代表性论文</h2>
-            
-            <div class="item">
-                <div class="item-title">BPDQ: Bit-Plane Decomposition Quantization for Large Language Models</div>
-                <div class="item-meta"><strong>Your Name</strong>, Student A, Student B</div>
-                <div class="item-venue">NeurIPS 2025</div>
-                <div class="item-links">
-                    <a href="#">Paper</a>
-                    <a href="#">Code</a>
-                    <a href="#">BibTeX</a>
-                </div>
+    <section>
+        <h2>📄 代表性论文</h2>
+        <div class="item">
+            <div class="item-title">[CCF-A] BPDQ: Bit-Plane Decomposition Quantization for Large Language Models</div>
+            <div class="item-meta"><strong>Your Name</strong>, Student A, Student B</div>
+            <div class="item-venue">NeurIPS 2025</div>
+            <div class="item-links">
+                <a href="#">PDF</a>
+                <a href="#">Code</a>
+                <a href="#">BibTeX</a>
             </div>
-
-            <div class="item">
-                <div class="item-title">Efficient Vision Transformers via Dynamic Token Merging</div>
-                <div class="item-meta">Student C, <strong>Your Name</strong></div>
-                <div class="item-venue">CVPR 2024</div>
-                <div class="item-links">
-                    <a href="#">Paper</a>
-                    <a href="#">Code</a>
-                </div>
+        </div>
+        <div class="item">
+            <div class="item-title">[SCI-Q1] Efficient Vision Transformers via Dynamic Token Merging</div>
+            <div class="item-meta">Student C, <strong>Your Name</strong> (通讯作者)</div>
+            <div class="item-venue">IEEE TPAMI, 2024</div>
+            <div class="item-links">
+                <a href="#">PDF</a>
+                <a href="#">Code</a>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- 招生信息 -->
-    <div class="card">
-        <section>
-            <h2>📢 招生信息</h2>
-            <p>课题组常年招收对 <strong>AI系统/大模型</strong> 感兴趣的硕士/博士研究生及本科生实习生。要求具有扎实的数学/编程基础，有顶会/顶刊发表经历者优先。欢迎发邮件联系！</p>
-        </section>
-    </div>
+    <section>
+        <h2>📢 招生信息</h2>
+        <p>
+            课题组常年招收对 <strong>AI系统/大模型</strong> 感兴趣的硕士/博士/博士后。我们提供充足的计算资源（[X]张 A100/H100）、有竞争力的津贴与一对一指导。
+        </p>
+        <p>
+            📩 <strong>申请方式：</strong>请发送简历、成绩单及代表性成果至 yourname@university.edu.cn，邮件标题格式：<strong>[姓名]-[申请学位]-[毕业院校]</strong>。
+        </p>
+    </section>
 </div>
 
 </body>
