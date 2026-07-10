@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的名字 - 高校教师主页</title>
+    <style>
+        :root { --primary-color: #2c3e50; --link-color: #3498db; --text-color: #333; --bg-color: #fff; --border-color: #eee; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* 头部布局：左图右文 */
+        .header { display: flex; gap: 30px; align-items: flex-start; margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; }
+        .avatar { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-color); flex-shrink: 0; }
+        .intro h1 { margin: 0 0 10px 0; font-size: 2em; color: var(--primary-color); }
+        .intro p { margin: 5px 0; font-size: 1.1em; }
+        .links a { color: var(--link-color); text-decoration: none; margin-right: 15px; font-weight: 500; }
+        .links a:hover { text-decoration: underline; }
+
+        /* 内容板块 */
+        section { margin-bottom: 30px; }
+        h2 { font-size: 1.5em; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
+        
+        /* 论文列表 */
+        .pub-item { margin-bottom: 15px; }
+        .pub-title { font-weight: bold; color: var(--primary-color); }
+        .pub-authors { font-size: 0.95em; color: #555; }
+        .pub-venue { font-style: italic; color: #666; font-size: 0.9em; }
+        .pub-links a { font-size: 0.85em; margin-right: 10px; color: var(--link-color); text-decoration: none; }
+
+        /* 响应式：手机端照片居中 */
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: center; text-align: center; }
+            .links a { display: inline-block; margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1. 头部区域 -->
+        <div class="header">
+            <!-- ⚠️ 修改点：将 src 换成你的照片链接，或者把照片上传到仓库后写文件名 -->
+            <img src="https://via.placeholder.com/180" alt="Photo" class="avatar">
+            <div class="intro">
+                <h1>你的名字 (Your Name)</h1>
+                <p><strong>职称：</strong>副教授 / 教授 / 讲师</p>
+                <p><strong>单位：</strong>XX大学 计算机学院 / 人工智能学院</p>
+                <p><strong>邮箱：</strong>yourname@university.edu.cn</p>
+                <div class="links" style="margin-top: 10px;">
+                    <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                    <a href="https://github.com/你的用户名" target="_blank">GitHub</a>
+                    <a href="files/cv.pdf" target="_blank">CV (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 个人简介 -->
+        <section>
+            <h2>📝 个人简介</h2>
+            <p>
+                我是 XX大学 XX学院的 [职称]。我的研究兴趣主要集中在 <strong>人工智能</strong>、<strong>大模型高效推理</strong> 和 <strong>计算机视觉</strong> 等领域。
+                近年来，我在 NeurIPS, ICML, CVPR 等顶级会议及 IEEE TPAMI 等期刊发表多篇论文。
+            </p>
+        </section>
+
+        <!-- 3. 研究兴趣 -->
+        <section>
+            <h2>🔬 研究兴趣</h2>
+            <ul>
+                <li>大语言模型量化与部署 (LLM Quantization)</li>
+                <li>高效深度学习系统 (Efficient AI Systems)</li>
+                <li>多模态学习 (Multimodal Learning)</li>
+            </ul>
+        </section>
+
+        <!-- 4. 代表性论文 -->
+        <section>
+            <h2>📄 代表性论文</h2>
+            
+            <div class="pub-item">
+                <div class="pub-title">BPDQ: Bit-Plane Decomposition Quantization for Large Language Models</div>
+                <div class="pub-authors"><strong>Your Name</strong>, Student A, Student B</div>
+                <div class="pub-venue">NeurIPS 2025</div>
+                <div class="pub-links">
+                    <a href="#">[Paper]</a>
+                    <a href="#">[Code]</a>
+                    <a href="#">[BibTeX]</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">Efficient Vision Transformers via Dynamic Token Merging</div>
+                <div class="pub-authors">Student C, <strong>Your Name</strong></div>
+                <div class="pub-venue">CVPR 2024</div>
+                <div class="pub-links">
+                    <a href="#">[Paper]</a>
+                    <a href="#">[Code]</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 招生/新闻 -->
+        <section>
+            <h2>📢 招生信息</h2>
+            <p>课题组常年招收对 <strong>AI系统/大模型</strong> 感兴趣的硕士/博士研究生及本科生实习生。要求具有扎实的数学/编程基础，有顶会/顶刊发表经历者优先。</p>
+        </section>
+    </div>
+</body>
+</html>
