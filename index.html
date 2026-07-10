@@ -3,258 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>你的名字 - 高校教师主页</title>
+    <title>张明 · 高校教师主页</title>
     <style>
+        /* ===== 全局重置 & 变量 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary-color: #2563eb;
-            --text-color: #334155;
-            --sub-text-color: #64748b;
-            --bg-color: #ffffff;
-            --border-color: #e2e8f0;
+            --primary: #1e4a8a;
+            --primary-light: #2a5ea5;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-body: #f9fafc;
+            --bg-card: #ffffff;
+            --border-light: #e9edf2;
+            --radius-card: 16px;
+            --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            --font-serif: "Georgia", "Times New Roman", serif;
+            --transition: 0.2s ease-in-out;
         }
 
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 40px 20px;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 860px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 50px 20px;
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            padding: 50px 45px;
+            transition: padding 0.2s;
         }
 
-        /* 头部区域 */
-        .header {
+        /* ===== 头部 ===== */
+        .profile-header {
             display: flex;
-            gap: 30px;
+            gap: 36px;
             align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 42px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        /* 照片大小：当前为 200px */
         .avatar {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--border-color);
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
             flex-shrink: 0;
+            background: #eef2f6;
         }
 
-        .intro h1 {
-            margin: 0 0 8px 0;
-            font-size: 2.2em;
-            color: #1e293b;
-            letter-spacing: -0.02em;
-        }
-
-        .intro p {
-            margin: 4px 0;
-            font-size: 1.05em;
-            color: var(--sub-text-color);
-        }
-
-        .links { margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap; }
-        
-        .btn {
-            display: inline-block;
-            padding: 6px 14px;
-            background: #f1f5f9;
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9em;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .btn:hover {
-            background: var(--primary-color);
-            color: #fff;
-        }
-
-        /* 内容板块 */
-        section { margin-bottom: 35px; }
-
-        h2 {
-            font-size: 1.4em;
-            color: #1e293b;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 8px; }
-
-        /* 列表条目样式 */
-        .item { margin-bottom: 20px; }
-        
-        /* 🎓 教育经历单行样式：更换为衬线字体，字号稍小，颜色稍浅 */
-        .edu-line {
-            font-family: "Georgia", "Times New Roman", serif; 
-            font-size: 0.95em;
-            color: var(--sub-text-color);
-            white-space: nowrap; 
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* 论文/项目条目样式 */
-        .item-title {
+        .profile-intro h1 {
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #1e293b;
-            font-size: 1.05em;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .profile-intro .title-line {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
             margin-bottom: 4px;
         }
-        .item-meta { font-size: 0.9em; color: var(--sub-text-color); margin-bottom: 2px; }
-        .item-venue { font-style: italic; color: var(--primary-color); font-size: 0.85em; font-weight: 500; }
-        
-        .item-links a {
-            font-size: 0.8em;
-            color: var(--sub-text-color);
-            text-decoration: none;
-            margin-right: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .item-links a:hover { color: var(--primary-color); text-decoration: underline; }
 
-        /* 招生信息特殊样式（引用块风格） */
-        .recruitment-box {
-            margin-top: 20px;
-            padding: 15px 20px;
-            background-color: #f8fafc;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 0 6px 6px 0;
-            font-family: "Georgia", "Times New Roman", serif; 
-            font-size: 0.95em;
-            color: #475569;
+        .profile-intro .detail-line {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .profile-intro .detail-line i {
+            font-style: normal;
+            opacity: 0.7;
+        }
+
+        .link-group {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 6px 18px;
+            background: transparent;
+            border: 1.5px solid var(--border-light);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            letter-spacing: 0.02em;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(30, 74, 138, 0.15);
+        }
+
+        /* ===== 通用板块 ===== */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-title span {
+            background: var(--primary);
+            color: #fff;
+            font-size: 1rem;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        /* ===== 简介 + 招生框 ===== */
+        .bio-text {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+
+        .bio-text p {
+            margin-bottom: 12px;
+        }
+
+        .bio-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .recruitment-card {
+            margin-top: 24px;
+            padding: 18px 24px;
+            background: #f1f5fa;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            font-family: var(--font-serif);
+            font-size: 0.98rem;
+            color: var(--text-secondary);
             line-height: 1.7;
         }
-        .recruitment-box strong {
-            color: var(--primary-color);
+
+        .recruitment-card strong {
+            color: var(--primary);
+            font-weight: 700;
         }
 
-        /* 响应式适配 */
-        @media (max-width: 640px) {
-            .container { padding: 30px 15px; }
-            .header { flex-direction: column; text-align: center; gap: 20px; }
-            .links { justify-content: center; }
-            .intro h1 { font-size: 1.8em; }
-            /* 手机端允许教育经历换行，防止内容被截断 */
-            .edu-line { white-space: normal; } 
+        /* ===== 研究方向列表 (无箭头) ===== */
+        .research-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .research-list li {
+            padding: 6px 0 6px 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .research-list li:last-child {
+            border-bottom: none;
+        }
+
+        .research-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* ===== 教育经历 (与上下文统一) ===== */
+        .edu-item {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-item .edu-year {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: "Inter", sans-serif;
+            min-width: 130px;
+        }
+
+        .edu-item .edu-desc {
+            color: var(--text-secondary);
+        }
+
+        .edu-item .edu-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ===== 项目 / 论文条目 ===== */
+        .entry {
+            margin-bottom: 26px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            font-size: 1.08rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .entry-meta {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+        }
+
+        .entry-meta strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .entry-venue {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .entry-links {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+        }
+
+        .entry-links a {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1.5px solid transparent;
+            transition: var(--transition);
+        }
+
+        .entry-links a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 780px) {
+            .container {
+                padding: 30px 22px;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+            .profile-intro .detail-line {
+                justify-content: center;
+            }
+            .link-group {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .edu-item .edu-year {
+                min-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 10px;
+            }
+            .container {
+                padding: 24px 16px;
+                border-radius: 12px;
+            }
+            .avatar {
+                width: 130px;
+                height: 130px;
+            }
+            .profile-intro h1 {
+                font-size: 1.7rem;
+            }
+            .recruitment-card {
+                padding: 14px 16px;
+                font-size: 0.92rem;
+            }
+            .entry-title {
+                font-size: 1rem;
+            }
+            .edu-item {
+                flex-direction: column;
+                gap: 4px;
+                padding: 12px 0;
+            }
+            .edu-item .edu-year {
+                min-width: auto;
+            }
+        }
+
+        /* ===== 实用工具 ===== */
+        .text-muted {
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
-
 <div class="container">
     <!-- 头部区域 -->
-    <div class="header">
-        <img src="photo.jpg" alt="Photo" class="avatar">
-        <div class="intro">
-            <h1>你的名字 (Your Name, Ph.D.)</h1>
-            <p>🏫 副教授 / 教授 · XX大学 计算机学院</p>
-            <p>🎂 出生年月：1990年X月</p>
-            <p>📧 yourname@university.edu.cn</p>
-            <div class="links">
-                <a href="https://scholar.google.com" target="_blank" class="btn">Google Scholar</a>
-                <a href="https://orcid.org/你的ORCID号" target="_blank" class="btn">ORCID</a>
+    <header class="profile-header">
+        <img src="photo.jpg" alt="张明教授照片" class="avatar">
+        <div class="profile-intro">
+            <h1>张明 (Ming Zhang, Ph.D.)</h1>
+            <div class="title-line">🏛️ 教授 · 博士生导师 · 计算机学院</div>
+            <div class="detail-line"><i>🎂</i> 1990年3月 · 中国</div>
+            <div class="detail-line"><i>📧</i> ming.zhang@university.edu.cn</div>
+            <div class="link-group">
+                <a href="#" class="btn-outline" target="_blank">Google Scholar</a>
+                <a href="#" class="btn-outline" target="_blank">ORCID</a>
+                <a href="#" class="btn-outline" target="_blank">GitHub</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- 个人简介 + 招生信息 -->
+    <!-- 个人简介 + 招生 -->
     <section>
-        <h2>📝 个人简介</h2>
-        <p>
-            我是 XX大学 XX学院的 [职称]，[博士生导师/硕士生导师]。我的研究聚焦于 <strong>人工智能系统与大模型高效计算</strong>，致力于解决大模型在资源受限场景下的推理瓶颈。
-        </p>
-        <p>
-            近年来，我以第一作者/通讯作者在 <strong>NeurIPS, ICML, CVPR, IEEE TPAMI</strong> 等顶级会议与期刊发表论文 [X] 篇。研究成果被引用 [X] 次，致力于推动 AI 系统在边缘端的落地应用。
-        </p>
-        
+        <div class="section-title"><span>📝</span> 个人简介</div>
+        <div class="bio-text">
+            <p>
+                张明，XX大学计算机学院教授，博士生导师。长期从事 <strong>人工智能系统、大模型高效计算</strong> 与 <strong>多模态学习</strong> 研究，
+                聚焦于大模型在资源受限场景下的推理加速与部署。近年来在 <strong>NeurIPS, ICML, CVPR, IEEE TPAMI</strong> 等
+                顶级会议与期刊上发表论文 40 余篇，引用超过 6000 次。
+            </p>
+            <p>
+                课题组与工业界保持紧密合作，多项成果已应用于智能终端、自动驾驶等领域。欢迎对 AI 系统有热情的同学加入。
+            </p>
+        </div>
+
         <!-- 招生信息（嵌入在简介下方） -->
-        <div class="recruitment-box">
-            📢 <strong>招生信息：</strong>课题组常年招收对 AI系统/大模型 感兴趣的硕士/博士研究生，提供充足的计算资源与一对一指导。<br>
-            📩 欢迎发送简历及代表性成果至 yourname@university.edu.cn，邮件标题请注明：[姓名]-[申请学位]-[毕业院校]。
+        <div class="recruitment-card">
+            📢 <strong>招生信息：</strong> 课题组常年招收 硕士、博士研究生，提供充足的计算资源、前沿课题与一对一指导。<br>
+            📩 请将简历及代表性成果发送至 ming.zhang@university.edu.cn，邮件标题格式：[姓名]-[申请学位]-[毕业院校]。
         </div>
     </section>
 
-    <!-- 研究方向 -->
+    <!-- 研究方向 (无箭头) -->
     <section>
-        <h2>🔬 研究方向</h2>
-        <ul>
-            <li><strong>大模型高效推理：</strong>研究模型量化、剪枝与动态计算图，旨在将百亿级模型部署至边缘设备。</li>
-            <li><strong>多模态对齐机制：</strong>探索视觉-语言跨模态语义空间的统一表征，解决复杂场景下的幻觉问题。</li>
-            <li><strong>AI for Science：</strong>利用深度学习加速 [具体学科]，相关代码已开源并被 [某机构] 采用。</li>
+        <div class="section-title"><span>🔬</span> 研究方向</div>
+        <ul class="research-list">
+            <li><strong>大模型高效推理：</strong>模型量化、剪枝、动态稀疏计算，实现百亿级模型在边缘设备上的实时推理。</li>
+            <li><strong>多模态对齐与理解：</strong>视觉-语言跨模态表征学习，解决复杂场景下的语义对齐与幻觉问题。</li>
+            <li><strong>AI for Science：</strong>利用深度学习加速材料计算与分子模拟，相关代码已开源并被多家机构采用。</li>
         </ul>
     </section>
 
-    <!-- 教育经历 -->
+    <!-- 教育经历 (字体与上下文统一) -->
     <section>
-        <h2>🎓 教育经历</h2>
-        <div class="item">
-            <div class="edu-line">2018.09 - 2023.06 | XX大学 | 计算机科学与技术 | 博士</div>
+        <div class="section-title"><span>🎓</span> 教育经历</div>
+        <div class="edu-item">
+            <span class="edu-year">2018.09 – 2023.06</span>
+            <span class="edu-desc"><strong>XX大学</strong> · 计算机科学与技术 · 博士 (导师：王 教授)</span>
         </div>
-        <div class="item">
-            <div class="edu-line">2014.09 - 2018.06 | XX大学 | 计算机科学与技术 | 学士</div>
+        <div class="edu-item">
+            <span class="edu-year">2014.09 – 2018.06</span>
+            <span class="edu-desc"><strong>XX大学</strong> · 计算机科学与技术 · 学士 (荣誉学位)</span>
         </div>
     </section>
 
     <!-- 科研项目 -->
     <section>
-        <h2>🚀 科研项目</h2>
-        <div class="item">
-            <div class="item-title">面向大语言模型的极致压缩与高效推理技术研究</div>
-            <div class="item-meta">国家自然科学基金青年项目 (No. 62406XXX) | <strong>项目负责人</strong></div>
-            <div class="item-meta">2025.01 - 2027.12 | 经费：30万元</div>
+        <div class="section-title"><span>🚀</span> 科研项目</div>
+        <div class="entry">
+            <div class="entry-title">面向大语言模型的极致压缩与高效推理技术研究</div>
+            <div class="entry-meta">国家自然科学基金青年项目 (No. 62406XXX) · <strong>项目负责人</strong></div>
+            <div class="entry-meta">2025.01 – 2027.12 · 经费：30万元</div>
         </div>
-        <div class="item">
-            <div class="item-title">多模态视觉大模型关键技术研究与应用</div>
-            <div class="item-meta">XX省重点研发计划 | <strong>项目负责人</strong></div>
-            <div class="item-meta">2023.06 - 2025.05 | 经费：50万元</div>
+        <div class="entry">
+            <div class="entry-title">多模态视觉大模型关键技术研究与应用</div>
+            <div class="entry-meta">XX省重点研发计划 · <strong>项目负责人</strong></div>
+            <div class="entry-meta">2023.06 – 2025.05 · 经费：50万元</div>
+        </div>
+        <div class="entry">
+            <div class="entry-title">基于动态计算图的轻量级 Transformer 架构</div>
+            <div class="entry-meta">企业联合实验室课题 · <strong>主持</strong></div>
+            <div class="entry-meta">2024.01 – 2025.12 · 经费：80万元</div>
         </div>
     </section>
 
     <!-- 代表性论文 -->
     <section>
-        <h2>📄 代表性论文</h2>
-        <div class="item">
-            <div class="item-title">[CCF-A] BPDQ: Bit-Plane Decomposition Quantization for Large Language Models</div>
-            <div class="item-meta"><strong>Your Name</strong>, Student A, Student B</div>
-            <div class="item-venue">NeurIPS 2025</div>
-            <div class="item-links">
+        <div class="section-title"><span>📄</span> 代表性论文</div>
+        <div class="entry">
+            <div class="entry-title">[CCF-A] BPDQ: Bit-Plane Decomposition Quantization for Large Language Models</div>
+            <div class="entry-meta"><strong>Ming Zhang</strong>, Student A, Student B, Prof. C</div>
+            <div class="entry-venue">NeurIPS 2025 (主会) · 录用率 22%</div>
+            <div class="entry-links">
                 <a href="#">PDF</a>
                 <a href="#">Code</a>
                 <a href="#">BibTeX</a>
             </div>
         </div>
-        <div class="item">
-            <div class="item-title">[SCI-Q1] Efficient Vision Transformers via Dynamic Token Merging</div>
-            <div class="item-meta">Student C, <strong>Your Name</strong> (通讯作者)</div>
-            <div class="item-venue">IEEE TPAMI, 2024</div>
-            <div class="item-links">
+        <div class="entry">
+            <div class="entry-title">[SCI-Q1] Efficient Vision Transformers via Dynamic Token Merging</div>
+            <div class="entry-meta">Student C, <strong>Ming Zhang</strong> (通讯作者), Prof. D</div>
+            <div class="entry-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024</div>
+            <div class="entry-links">
                 <a href="#">PDF</a>
                 <a href="#">Code</a>
             </div>
         </div>
+        <div class="entry">
+            <div class="entry-title">[CCF-A] Cross-Modal Alignment with Progressive Contrastive Learning</div>
+            <div class="entry-meta"><strong>Ming Zhang</strong>, Student E, Prof. F</div>
+            <div class="entry-venue">ICML 2023 · 长文</div>
+            <div class="entry-links">
+                <a href="#">PDF</a>
+                <a href="#">Supp</a>
+                <a href="#">BibTeX</a>
+            </div>
+        </div>
     </section>
 
+    <!-- 页脚已移除 -->
 </div>
-
 </body>
 </html>
