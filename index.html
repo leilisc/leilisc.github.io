@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李磊 - 高校教师主页</title>
+    <title>你的名字 - 高校教师主页</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -39,9 +39,10 @@
             border-bottom: 2px solid var(--border-color);
         }
 
+        /* 照片大小：当前为 200px */
         .avatar {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--border-color);
@@ -99,6 +100,18 @@
 
         /* 列表条目样式 */
         .item { margin-bottom: 20px; }
+        
+        /* 🎓 教育经历单行样式：更换为衬线字体，字号稍小，颜色稍浅 */
+        .edu-line {
+            font-family: "Georgia", "Times New Roman", serif; 
+            font-size: 0.95em;
+            color: var(--sub-text-color);
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 论文/项目条目样式 */
         .item-title {
             font-weight: 700;
             color: #1e293b;
@@ -119,12 +132,30 @@
         }
         .item-links a:hover { color: var(--primary-color); text-decoration: underline; }
 
+        /* 招生信息特殊样式（引用块风格） */
+        .recruitment-box {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 6px 6px 0;
+            font-family: "Georgia", "Times New Roman", serif; 
+            font-size: 0.95em;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .recruitment-box strong {
+            color: var(--primary-color);
+        }
+
         /* 响应式适配 */
         @media (max-width: 640px) {
             .container { padding: 30px 15px; }
             .header { flex-direction: column; text-align: center; gap: 20px; }
             .links { justify-content: center; }
             .intro h1 { font-size: 1.8em; }
+            /* 手机端允许教育经历换行，防止内容被截断 */
+            .edu-line { white-space: normal; } 
         }
     </style>
 </head>
@@ -133,13 +164,12 @@
 <div class="container">
     <!-- 头部区域 -->
     <div class="header">
-        <!-- ⚠️ 记得把 photo.jpg 换成你上传的照片文件名 -->
         <img src="photo.jpg" alt="Photo" class="avatar">
         <div class="intro">
-            <h1>李磊 Lei Li</h1>
-            <p>🏫 特聘副研究员 · 西南石油大学 计算机与软件学院</p>
-            <p>🎂 出生年月：1994年2月</p>
-            <p>📧 leili@swpu.edu.cn</p>
+            <h1>你的名字 (Your Name, Ph.D.)</h1>
+            <p>🏫 副教授 / 教授 · XX大学 计算机学院</p>
+            <p>🎂 出生年月：1990年X月</p>
+            <p>📧 yourname@university.edu.cn</p>
             <div class="links">
                 <a href="https://scholar.google.com" target="_blank" class="btn">Google Scholar</a>
                 <a href="https://orcid.org/你的ORCID号" target="_blank" class="btn">ORCID</a>
@@ -147,7 +177,7 @@
         </div>
     </div>
 
-    <!-- 个人简介 -->
+    <!-- 个人简介 + 招生信息 -->
     <section>
         <h2>📝 个人简介</h2>
         <p>
@@ -156,6 +186,12 @@
         <p>
             近年来，我以第一作者/通讯作者在 <strong>NeurIPS, ICML, CVPR, IEEE TPAMI</strong> 等顶级会议与期刊发表论文 [X] 篇。研究成果被引用 [X] 次，致力于推动 AI 系统在边缘端的落地应用。
         </p>
+        
+        <!-- 招生信息（嵌入在简介下方） -->
+        <div class="recruitment-box">
+            📢 <strong>招生信息：</strong>课题组常年招收对 AI系统/大模型 感兴趣的硕士/博士研究生，提供充足的计算资源与一对一指导。<br>
+            📩 欢迎发送简历及代表性成果至 yourname@university.edu.cn，邮件标题请注明：[姓名]-[申请学位]-[毕业院校]。
+        </div>
     </section>
 
     <!-- 研究方向 -->
@@ -172,16 +208,10 @@
     <section>
         <h2>🎓 教育经历</h2>
         <div class="item">
-            <div class="item-title"> 2020.09 - 2023.12 | 四川大学| 计算机科学与技术 | 博士</div>
+            <div class="edu-line">2018.09 - 2023.06 | XX大学 | 计算机科学与技术 | 博士</div>
         </div>
         <div class="item">
-            <div class="item-title"> 2022.10 - 2023.10 | 丹麦奥尔堡大学| 音频分析实验室 | 公派联合培养博士</div>
-        </div>
-        <div class="item">
-            <div class="item-title"> 2017.09 - 2020.06 | 西南交通大学| 电气工程 | 硕士</div>
-        </div>
-        <div class="item">
-            <div class="item-title"> 2013.09 - 2017.06 | 长安大学| 电气工程及其自动化 | 本科</div>
+            <div class="edu-line">2014.09 - 2018.06 | XX大学 | 计算机科学与技术 | 学士</div>
         </div>
     </section>
 
@@ -224,16 +254,6 @@
         </div>
     </section>
 
-    <!-- 招生信息 -->
-    <section>
-        <h2>📢 招生信息</h2>
-        <p>
-            课题组常年招收对 <strong>AI系统/大模型</strong> 感兴趣的硕士/博士/博士后。我们提供充足的计算资源（[X]张 A100/H100）、有竞争力的津贴与一对一指导。
-        </p>
-        <p>
-            📩 <strong>申请方式：</strong>请发送简历、成绩单及代表性成果至 yourname@university.edu.cn，邮件标题格式：<strong>[姓名]-[申请学位]-[毕业院校]</strong>。
-        </p>
-    </section>
 </div>
 
 </body>
